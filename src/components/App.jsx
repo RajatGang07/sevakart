@@ -11,7 +11,6 @@ import { selectCurrentUser } from '../redux/user/selector';
 import { createStructuredSelector } from 'reselect';
 import CheckoutPage from '../pages/checkout-page';
 
-
 class App extends React.Component {
   
 
