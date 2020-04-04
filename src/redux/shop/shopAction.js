@@ -5,6 +5,7 @@ import {
   convertCollectionsSnapshotToMap
 } from '../../firebase/utils';
 
+
 export const fetchCollectionsStart = () => ({
   type: ShopActionTypes.FETCH_COLLECTIONS_START
 });
