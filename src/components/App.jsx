@@ -4,7 +4,7 @@ import HomePage from '../pages/homePage/index';
 import ShopPage from '../pages/shop-page/index';
 import Header from "./header/index"
 import SignInAnsSignUp from '../pages/sign-in and sign-up/index';
-import { auth, createUserProfileDocument, addCollectionAndDocuments } from "../firebase/utils";
+import { auth, createUserProfileDocument } from "../firebase/utils";
 import {connect} from 'react-redux';
 import { setCurrentUser } from '../redux/user/userActions';
 import { selectCurrentUser } from '../redux/user/selector';
@@ -19,7 +19,7 @@ class App extends React.Component {
   unSubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser,collectionsArray } = this.props;
+    const { setCurrentUser } = this.props;
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
