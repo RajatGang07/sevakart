@@ -9,35 +9,32 @@ import CheckoutPage from '../pages/checkout-page';
 import SignInAndSignUpPage from "../pages/sign-in and sign-up/index";
 import { selectCurrentUser } from '../redux/user/userSelector';
 import { checkUserSession } from '../redux/user/userActions';
+import { GlobalStyle } from '../global.styles';
 
-const App = ({checkUserSession, currentUser}) => {
-
-  useEffect (() => {
+const App = ({ checkUserSession, currentUser }) => {
+  useEffect(() => {
     checkUserSession();
-  }, [checkUserSession])
- 
-    return (
-      <div>
-        <Header />
-        <Switch>
-          <Route exact path='/' component={HomePage} />
-          <Route path='/shop' component={ShopPage} />
-          <Route exact path='/checkout' component={CheckoutPage} />
-          <Route
-            exact
-            path='/signin'
-            render={() =>
-              currentUser ? (
-                <Redirect to='/' />
-              ) : (
-                <SignInAndSignUpPage />
-              )
-            }
-          />
-        </Switch>
-      </div>
-    );
-  }
+  }, [checkUserSession]);
+
+  return (
+    <div>
+      <GlobalStyle />
+      <Header />
+      <Switch>
+        <Route exact path='/' component={HomePage} />
+        <Route path='/shop' component={ShopPage} />
+        <Route exact path='/checkout' component={CheckoutPage} />
+        <Route
+          exact
+          path='/signin'
+          render={() =>
+            currentUser ? <Redirect to='/' /> : <SignInAndSignUpPage />
+          }
+        />
+      </Switch>
+    </div>
+  );
+};
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
