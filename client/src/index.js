@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 
 import App from './components/App.jsx';
 import { store, persistor } from './redux/store.js';
-import './assets/styles/style.css';
 
 
 ReactDOM.render(
