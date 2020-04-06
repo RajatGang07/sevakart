@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import App from './components/App.jsx';
 import { store, persistor } from './redux/store.js';
 
+import * as seviceWorker from './serviceWorker.js'
 
 ReactDOM.render(
   <Provider store={store}>
@@ -20,6 +21,7 @@ ReactDOM.render(
   document.getElementById('root'),
 );
 
+serviceWorker.register();
 // Check if hot reloading is enable. If it is, changes won't reload the page.
 // This is related to webpack-dev-server and works on development only.
 if (module.hot) {
